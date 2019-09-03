@@ -45,6 +45,7 @@ let navItems = document.querySelector('nav').querySelectorAll('a')
 for (let i=0; i<navItems.length; i++){
   let currentNav = (`nav-item-${i+1}`)
   navItems[i].textContent = siteContent.nav[currentNav]
+  navItems[i].style.color ='green'
 }
 
 //center start
@@ -98,3 +99,21 @@ contactP[2].textContent = siteContent.contact.email
 
 let footerP = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0]
 footerP.textContent = siteContent.footer.copyright
+
+// prepend and appending items to nav --> history and careers navItems[0]
+let navA = document.createElement('a')
+let navA1 = document.createElement('a')
+let navHistory = document.createTextNode('History')
+let navCareer = document.createTextNode('Careers')
+navA.appendChild(navHistory)
+navA.style.color = 'green'
+navA1.style.color = 'green'
+navA1.appendChild(navCareer)
+let navList = document.getElementsByTagName('nav')
+navList[0].prepend(navA)
+navList[0].appendChild(navA1)
+navList[0].style.color = 'green'
+
+document.getElementsByTagName('html')[0].style.width = '100%'
+
+//[0].style.width ='60%';
