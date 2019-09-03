@@ -47,6 +47,39 @@ for (let i=0; i<navItems.length; i++){
   navItems[i].textContent = siteContent.nav[currentNav]
 }
 
-//let cta = document.getElementsByClassName('cta');
-let bigTitle = document.querySelector('h1')
+//center start
+let cta = document.getElementsByClassName('cta');
+
+let bigTitle = cta[0].querySelector('h1')
 bigTitle.textContent = siteContent.cta.h1
+
+let ctaButton = cta[0].querySelector('button')
+ctaButton.textContent = siteContent.cta.button
+
+let ctaImg = document.getElementById('cta-img');
+ctaImg.src = siteContent.cta['img-src']
+//center complete
+
+//main content
+let mainContent = document.getElementsByClassName('main-content')
+
+let middleImg = document.getElementById("middle-img")
+middleImg.src = siteContent["main-content"]["middle-img-src"]
+
+//populating middle content
+let middleContentTitles = ['features','about','services','product','vision']
+let middleContentP = mainContent[0].querySelectorAll('p')
+middleContentP.forEach((element, index)=>(element.textContent = siteContent["main-content"][`${middleContentTitles[index]}-content`]))
+let middleContentH4 = mainContent[0].querySelectorAll('h4')
+middleContentH4.forEach((element, index)=>(element.textContent = siteContent["main-content"][`${middleContentTitles[index]}-h4`]))
+
+let contactSection = document.getElementsByClassName('contact')
+let contactH4 = contactSection[0].querySelector('h4')
+contactH4.textContent = siteContent.contact['contact-h4']
+let contactP = contactSection[0].querySelectorAll('p')
+contactP[0].textContent = siteContent.contact.address
+contactP[1].textContent = siteContent.contact.phone
+contactP[2].textContent = siteContent.contact.email
+
+let footerP = document.getElementsByTagName('footer')[0].getElementsByTagName('p')[0]
+footerP.textContent = siteContent.footer.copyright
