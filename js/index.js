@@ -49,9 +49,24 @@ for (let i=0; i<navItems.length; i++){
 
 //center start
 let cta = document.getElementsByClassName('cta');
+let ctaText = document.getElementsByClassName('cta-text');
 
-let bigTitle = cta[0].querySelector('h1')
-bigTitle.textContent = siteContent.cta.h1
+//splitting up the DOM IS AWESOME to get the words to stack
+let bigTitle = ctaText[0].querySelector('h1')
+let splitTitle = siteContent.cta.h1.split(' ');
+let titleH = document.createElement('h1')
+let titleT = document.createTextNode(splitTitle[1])
+let titleH1 = document.createElement('h1')
+let titleT1 = document.createTextNode(splitTitle[0])
+titleH.appendChild(titleT)
+titleH1.appendChild(titleT1)
+bigTitle.textContent = splitTitle[2]
+//prepending the titles
+ctaText[0].prepend(titleH)
+ctaText[0].prepend(titleH1)
+let title1 = document.createElement('h1');
+
+
 
 let ctaButton = cta[0].querySelector('button')
 ctaButton.textContent = siteContent.cta.button
